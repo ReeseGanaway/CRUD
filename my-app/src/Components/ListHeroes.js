@@ -37,24 +37,19 @@ function ListHeroes() {
       <table className="table">
         <thead>
           <tr>
-            <th class="colHead">Hero</th>
-            <th class="colHead">Edit</th>
-            <th class="colHead">Delete</th>
+            <th className="colHead">Hero</th>
+            <th className="colHead">Edit</th>
+            <th className="colHead">Delete</th>
           </tr>
         </thead>
         <tbody>
-          {/*<tr>
-            <td>John</td>
-            <td>Doe</td>
-            <td>john@example.com</td>
-          </tr>*/}
           {heroList.map((member) => (
             <tr key={member.members_id}>
-              <td class="colItem">{member.name}</td>
-              <td class="colItem">
+              <td className="colItem">{member.name}</td>
+              <td className="colItem">
                 <EditHeroes member={member} />
               </td>
-              <td class="colItem">
+              <td className="colItem">
                 {" "}
                 <button
                   className="btn btn-danger"

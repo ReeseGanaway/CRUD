@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from "react";
+import { Link } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 
 function SignUp() {
@@ -14,7 +15,7 @@ function SignUp() {
     //console.log(password);
     try {
       const body = { username, email, password };
-      const response = await fetch("http://localhost:5000/users", {
+      const response = await fetch("http://localhost:5000/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
@@ -33,6 +34,11 @@ function SignUp() {
 
   return (
     <Fragment>
+      <div className="NavBars">
+        <Link className="Links" to="/login">
+          Log In
+        </Link>
+      </div>
       <div className="sign-up-div">
         <h1 className="sign-up-header">
           Sign Up To Build Your Justice League Roster!

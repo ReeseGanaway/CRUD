@@ -60,3 +60,33 @@ input[type="text"] {
 #modal-input {
   width: 400px;
 }
+
+.login-button {
+  margin: 25px;
+}
+
+.login-div {
+  text-align: center;
+}
+.login-header {
+  padding-bottom: 25px;
+}
+
+.login-form {
+  text-align: center;
+}
+
+.Links {
+  padding: 10px;
+  color: white;
+  font-weight: bolder;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.NavBars {
+  width: 10%;
+  padding: 15px;
+  background-color: blue;
+  text-align: center;
+}

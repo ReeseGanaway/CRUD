@@ -79,6 +79,15 @@ const login = async (req, res) => {
   }
 };
 
+const getUsers = async (req, res) => {
+  try {
+    const allUsers = await pool.query("SELECT * FROM users");
+    res.json(allUsers.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+};
+
 const createHero = async (req, res) => {
   try {
     const { name } = req.body;
@@ -147,6 +156,7 @@ module.exports = pool;
 module.exports = {
   createUser,
   login,
+  getUsers,
   createHero,
   getHeroes,
   getSpecificHero,

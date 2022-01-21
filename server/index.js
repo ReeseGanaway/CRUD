@@ -106,9 +106,11 @@ app.delete("/jl/:id", db.deleteHero);
   }
 }*/
 
-app.post("/users", db.createUser);
+app.post("/signup", db.createUser);
 
 app.post("/login", db.login);
+
+app.get("/users", db.getUsers);
 
 app.listen(5000, () => {
   console.log("server has started on port 5000");
