@@ -1,0 +1,33 @@
+.App {
+  text-align: center;
+}
+
+.pageHeader {
+  text-align: center;
+}
+
+.addForm {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.nameInput {
+  text-align: center;
+}
+
+.table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.colHead {
+  padding: 10px;
+  padding-left: 75px;
+  padding-right: 75px;
+}
+
+.colItem {
+  padding: 10px;
+  padding-left: 75px;
+  padding-right: 75px;
+}
