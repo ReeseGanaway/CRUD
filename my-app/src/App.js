@@ -1,15 +1,20 @@
 import React, { Fragment } from "react";
 import "./App.css";
-import InputHeroes from "./Components/InputHeroes";
-import ListHeroes from "./Components/ListHeroes";
+import RosterCreator from "./Components/RosterCreator";
+import { BrowserRouter } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
+import SignUp from "./Components/SignUp";
 
 function App() {
   return (
     <Fragment>
-      <div className="container">
-        <InputHeroes />
-        <ListHeroes />
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<SignUp />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/rostercreator" element={<RosterCreator />} />
+        </Routes>
+      </BrowserRouter>
     </Fragment>
   );
 }

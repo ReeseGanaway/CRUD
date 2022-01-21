@@ -31,3 +31,32 @@
   padding-left: 75px;
   padding-right: 75px;
 }
+
+.sign-up-div {
+  text-align: center;
+}
+.sign-up-header {
+  padding-bottom: 25px;
+}
+
+.sign-up-form {
+  text-align: center;
+}
+
+input[type="text"] {
+  width: 500px;
+  padding: 12px 20px;
+  margin: 0 auto;
+  display: block;
+  border: 1px solid black;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.sign-up-button {
+  margin: 25px;
+}
+
+#modal-input {
+  width: 400px;
+}

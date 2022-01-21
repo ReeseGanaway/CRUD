@@ -24,7 +24,7 @@ function EditHeroes({ member }) {
     <Fragment>
       <button
         type="button"
-        class="btn btn-primary"
+        className="btn btn-primary"
         data-bs-toggle="modal"
         data-bs-target={`#id${member.members_id}`}
       >
@@ -32,35 +32,36 @@ function EditHeroes({ member }) {
       </button>
 
       <div
-        class="modal"
+        className="modal"
         id={`id${member.members_id}`}
         onClick={() => setName(member.name)}
       >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Edit Hero</h4>
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h4 className="modal-title">Edit Hero</h4>
               <button
                 type="button"
-                class="btn-close"
+                className="btn-close"
                 data-bs-dismiss="modal"
                 onClick={() => setName(member.name)}
               ></button>
             </div>
 
-            <div class="modal-body">
+            <div className="modal-body">
               <input
                 type="text"
-                class="modalBody"
+                className="modalBody"
+                id="modal-input"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
 
-            <div class="modal-footer">
+            <div className="modal-footer">
               <button
                 type="button"
-                class="btn btn-warning"
+                className="btn btn-warning"
                 data-bs-dismiss="modal"
                 onClick={(e) => updateName(e)}
               >
@@ -68,7 +69,7 @@ function EditHeroes({ member }) {
               </button>
               <button
                 type="button"
-                class="btn btn-danger"
+                className="btn btn-danger"
                 data-bs-dismiss="modal"
                 onClick={() => setName(member.name)}
               >
