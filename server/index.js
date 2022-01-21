@@ -4,6 +4,7 @@ const cors = require("cors");
 const pool = require("./db");
 const bodyParser = require("body-parser");
 const compression = require("compression");
+const db = require("./db");
 
 //middleware
 app.use(cors());
@@ -14,7 +15,11 @@ app.use(bodyParser.json());
 //ROUTES//
 
 //create a hero
-app.post("/jl", async (req, res) => {
+app.post("/jl", db.createHero);
+
+//Used the code below in the code along without login
+
+/*async (req, res) => {
   try {
     const { name } = req.body;
     const newMember = await pool.query(
@@ -26,22 +31,30 @@ app.post("/jl", async (req, res) => {
   } catch (err) {
     console.error(err.message);
   }
-});
+}*/
 
-//get all todos
+//get all heroes
 
-app.get("/jl", async (req, res) => {
+app.get("/jl", db.getHeroes);
+
+//Used the code below in the code along without login
+
+/*async (req, res) => {
   try {
     const allMembers = await pool.query("SELECT * FROM members");
     res.json(allMembers.rows);
   } catch (err) {
     console.error(err.message);
   }
-});
+}*/
 
-//get a todo
+//get a specified hero
 
-app.get("/jl/:id", async (req, res) => {
+app.get("/jl/:id", db.getSpecificHero);
+
+//Used the code below in the code along without login
+
+/* async (req, res) => {
   try {
     const { id } = req.params;
     const members = await pool.query(
@@ -53,11 +66,15 @@ app.get("/jl/:id", async (req, res) => {
   } catch (err) {
     console.error(err.message);
   }
-});
+}*/
 
-//update a todo
+//update a hero
 
-app.put("/jl/:id", async (req, res) => {
+app.put("/jl/:id", pool.updateHero);
+
+//Used the code below in the code along without login
+
+/*async (req, res) => {
   try {
     const { id } = req.params;
     const { name } = req.body;
@@ -69,10 +86,14 @@ app.put("/jl/:id", async (req, res) => {
   } catch (error) {
     console.error(err.message);
   }
-});
+}*/
 
 //delete a todo
-app.delete("/jl/:id", async (req, res) => {
+app.delete("/jl/:id", db.deleteHero);
+
+//Used the code below in the code along without login
+
+/*async (req, res) => {
   try {
     const { id } = req.params;
     const deleteMember = await pool.query(
@@ -83,11 +104,11 @@ app.delete("/jl/:id", async (req, res) => {
   } catch (err) {
     console.error(err.message);
   }
-});
+}*/
 
-app.post("/users", pool.createUser);
+app.post("/users", db.createUser);
 
-app.post("/login", pool.login);
+app.post("/login", db.login);
 
 app.listen(5000, () => {
   console.log("server has started on port 5000");

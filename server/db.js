@@ -79,5 +79,77 @@ const login = async (req, res) => {
   }
 };
 
+const createHero = async (req, res) => {
+  try {
+    const { name } = req.body;
+    const newMember = await pool.query(
+      "INSERT INTO members (name) VALUES($1) RETURNING *",
+      [name]
+    );
+
+    res.json(newMember.rows[0]);
+  } catch (err) {
+    console.error(err.message);
+  }
+};
+
+const getHeroes = async (req, res) => {
+  try {
+    const allMembers = await pool.query("SELECT * FROM members");
+    res.json(allMembers.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+};
+
+const getSpecificHero = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const members = await pool.query(
+      "SELECT * FROM members WHERE members_id = $1",
+      [id]
+    );
+
+    res.json(members.rows[0]);
+  } catch (err) {
+    console.error(err.message);
+  }
+};
+
+const updateHero = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { name } = req.body;
+    const updateMembers = await pool.query(
+      "UPDATE members SET name = $1 WHERE members_id = $2",
+      [name, id]
+    );
+    res.json("League roster was updated!");
+  } catch (error) {
+    console.error(err.message);
+  }
+};
+
+const deleteHero = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleteMember = await pool.query(
+      "DELETE FROM members WHERE members_id = $1",
+      [id]
+    );
+    res.json("Member was removed from the roster!");
+  } catch (err) {
+    console.error(err.message);
+  }
+};
+
 module.exports = pool;
-module.exports = { createUser, login };
+module.exports = {
+  createUser,
+  login,
+  createHero,
+  getHeroes,
+  getSpecificHero,
+  updateHero,
+  deleteHero,
+};
